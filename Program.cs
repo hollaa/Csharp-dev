@@ -40,6 +40,7 @@ class FirstAssignment {
         for (int i = 0; i < arr.Length; i++) {
             Console.Write(arr[i] + " ");
         }
+        Console.WriteLine();
         return;
     }
 
@@ -104,7 +105,7 @@ class FirstAssignment {
             temptRight[j] = arr[mid + 1 + j];
         }
 
-        i = 0; //for left array
+        i = 0; // indec for calculating for left array
         j = 0; //index for calculating the right array
         k = left; //the index of the initial array
 
