@@ -3,11 +3,6 @@
 class Sort {
     static void Main(string[] args) {
 
-          //it does not make sense to sort less than 2 numbers 
-        if (args.Length < 2) {
-            Console.WriteLine("The list of numbers to sort should be bigger than two, try again.");
-        }
-
         //to call the bubble sort function, the input should be -Bubble
         if (args[0] == "-Bubble") {
             int[] arr = ParseInput(args[1]);
@@ -25,7 +20,6 @@ class Sort {
             Console.WriteLine("Please specify the sort you want. Can be either -Bubble or -Merge.");
         }
         
-      
     }
 
     static int[] ParseInput(string input) {
@@ -39,21 +33,23 @@ class Sort {
         return arr;
     }
 
+    //function to print the array after sorting, passing the array 
     static void PrintArray(int[] arr) {
-        Console.WriteLine("Sorted Array:");
+        Console.WriteLine("This is your sorted array: ");
         for (int i = 0; i < arr.Length; i++) {
             Console.Write(arr[i] + " ");
         }
+        return;
     }
 
     static void BubbleSort(int[] arr) {
-        int n = arr.Length;
+        int length = arr.Length;
         bool swapped;
 
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < length - 1; i++) {
             swapped = false;
 
-            for (int j = 0; j < n - i - 1; j++) {
+            for (int j = 0; j < length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
@@ -126,4 +122,4 @@ class Sort {
     }
 }
 
-//future improvements -> check whether the input is integer
+//future improvements -> check whether the input is integer, check there are more than 2 numbers inserted 
