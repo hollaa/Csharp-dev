@@ -5,13 +5,11 @@ class FirstAssignment
     static void Main(string[] args)
     {
 
-        
-        if (args[0] != "sort")
+        if (args.Length != 3 || args[0] != "sort" || args[1] != "-Bubble" && args[1] != "-Merge")
         {
             Console.WriteLine("Input not correct. Check the documentation to be inspired for the input format");
             return;
         }
-
         //to call the bubble sort function, the input should be -Bubble
         if (args[1] == "-Bubble")
         {
@@ -26,11 +24,6 @@ class FirstAssignment
             MergeSort(arr, 0, arr.Length - 1);
             PrintArray(arr);
         }
-        else
-        {
-            Console.WriteLine("Please specify the sort you want. Can be either -Bubble or -Merge.");
-        }
-
     }
 
     //parsing the string input into the list of numbers
