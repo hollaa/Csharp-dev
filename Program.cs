@@ -137,4 +137,3 @@ class FirstAssignment {
     }
 }
 
-//future improvements -> check whether the input is integer, check there are more than 2 numbers inserted 
