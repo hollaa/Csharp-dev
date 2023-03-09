@@ -7,7 +7,7 @@ class FirstAssignment
         int[] arr;
         if (args.Length != 3 || args[0] != "sort" || args[1] != "-Bubble" && args[1] != "-Merge")
         {
-            Console.WriteLine("Input not correct. Check the documentation to be inspired for the input format");
+            Console.WriteLine("Input not correct. Correct version: sort -Bubble “1,4,2,3” or  sort -Merge “1,4,2,3”");
             return;
         }
         else
