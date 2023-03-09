@@ -4,23 +4,23 @@ class FirstAssignment
 {
     static void Main(string[] args)
     {
-
+        int[] arr;
         if (args.Length != 3 || args[0] != "sort" || args[1] != "-Bubble" && args[1] != "-Merge")
         {
             Console.WriteLine("Input not correct. Check the documentation to be inspired for the input format");
             return;
         }
+        else
+             arr = ParseInput(args[2]);
         //to call the bubble sort function, the input should be -Bubble
         if (args[1] == "-Bubble")
         {
-            int[] arr = ParseInput(args[2]);
             BubbleSort(arr); //calling the bubble sort, passing the numbers the user gave us
             PrintArray(arr);
         }
         //to call the merge sort function, the input should be -Merge
         else if (args[1] == "-Merge")
         {
-            int[] arr = ParseInput(args[2]);
             MergeSort(arr, 0, arr.Length - 1);
             PrintArray(arr);
         }
@@ -57,7 +57,6 @@ class FirstAssignment
     static void BubbleSort(int[] unsortedArray)
     {
         int length = unsortedArray.Length;
-        int temp;
         int position;
         bool swapped = true; //need to check if the number has been swapped
 
@@ -71,8 +70,7 @@ class FirstAssignment
             {
                 if (unsortedArray[j] > unsortedArray[j + 1])
                 { //if current element is greater than the next one, swap it forward
-
-                    temp = unsortedArray[j];
+                    int temp = unsortedArray[j];
                     unsortedArray[j] = unsortedArray[j + 1];
                     unsortedArray[j + 1] = temp;
                     swapped = true;
@@ -81,9 +79,7 @@ class FirstAssignment
 
             //if no swap was made during the iteration, the array is already sorted
             if (swapped == false)
-            {
                 break;
-            }
         }
     }
 
@@ -113,15 +109,8 @@ class FirstAssignment
         int[] tempLeft = new int[sizeLeft]; //temporary array for the left subarray
         int[] temptRight = new int[sizeRight]; //temporary array for the right subarray
 
-        for (i = 0; i < sizeLeft; i++)
-        { //copying the left subarray to the temporary 
-            tempLeft[i] = arr[left + i];
-        }
-
-        for (j = 0; j < sizeRight; j++)
-        { //copying the right subarray to the temporary 
-            temptRight[j] = arr[mid + 1 + j];
-        }
+        Array.Copy(arr, left, tempLeft, 0, sizeLeft);
+        Array.Copy(arr, mid + 1, temptRight, 0, sizeRight);
 
         i = 0; // index for calculating for left array
         j = 0; //index for calculating the right array

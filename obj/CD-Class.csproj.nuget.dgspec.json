@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alicaholla/Documents/CD-Class/CD-Class.csproj": {}
+    "/Users/alicaholla/Documents/CD-Assignment1/CD-Class.csproj": {}
   },
   "projects": {
-    "/Users/alicaholla/Documents/CD-Class/CD-Class.csproj": {
+    "/Users/alicaholla/Documents/CD-Assignment1/CD-Class.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alicaholla/Documents/CD-Class/CD-Class.csproj",
+        "projectUniqueName": "/Users/alicaholla/Documents/CD-Assignment1/CD-Class.csproj",
         "projectName": "CD-Class",
-        "projectPath": "/Users/alicaholla/Documents/CD-Class/CD-Class.csproj",
+        "projectPath": "/Users/alicaholla/Documents/CD-Assignment1/CD-Class.csproj",
         "packagesPath": "/Users/alicaholla/.nuget/packages/",
-        "outputPath": "/Users/alicaholla/Documents/CD-Class/obj/",
+        "outputPath": "/Users/alicaholla/Documents/CD-Assignment1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/alicaholla/.nuget/NuGet/NuGet.Config"
