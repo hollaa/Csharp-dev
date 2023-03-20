@@ -48,11 +48,11 @@ The list to be sorted is given by the user by the command
 sort -Merge “1,4,2,3”
 ```
 
-1. The program checks if the command from the input starts with -Bubble
+1. The program checks if the command from the input starts with -Merge
 2. Function ParseInput is called with passing the list of numbers from the input, here is the string divided into array of numbers
 3. MergeSort function is called, the parameters are the list of numbers to be sorted, 0 for the the begininning of the array and the length of the array -1 for the end of the array
 4. MergeSort function is recurssively dividing the array into halves 
-5. The first time the MergeSort function runs, in the if statement it checks if there is more than one element in the array and then calculates the middle index. The other times, it compares the 
+5. The first time the MergeSort function runs, in the if statement it checks if there is more than one element in the array and then calculates the middle index. 
 6. After the left and right halves are sorted, the Merge function is called to merge the two sorted halves into a single sorted array
 7. The Merge function copies the left and right subarrays into temporary arrays
 8. The first while loop is going through the temporary arrays and compares each element from the same index and writes the smaller one to the initial array. If they are equal, the element from the left array is written first.
