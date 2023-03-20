@@ -15,15 +15,15 @@ class FirstAssignment
         //to call the bubble sort function, the input should be -Bubble
         if (args[1] == "-Bubble")
         {
-            BubbleSorter sorter = new BubbleSorter();
-            sorter.Sort(arr); //calling the bubble sort, passing the numbers the user gave us
+            BubbleSort bubbleSort = new BubbleSort();
+            bubbleSort.Sort(arr); //calling the bubble sort, passing the numbers the user gave us
             PrintArray(arr);
         }
         //to call the merge sort function, the input should be -Merge
         else if (args[1] == "-Merge")
         {
-            MergeSorter sorter = new MergeSorter();
-            sorter.Sort(arr, 0, arr.Length - 1);
+            MergeSort MergeSorter = new MergeSort();
+            MergeSorter.Sort(arr);
             PrintArray(arr);
         }
     }

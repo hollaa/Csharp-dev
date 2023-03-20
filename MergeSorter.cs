@@ -1,64 +1,50 @@
-class MergeSorter
+public class MergeSort : ISortAlgorithm
 {
-    public void Sort(int[] arr, int left, int right)
+    public int[] Sort(int[] array)
     {
-        //when the function is called for the first time, left = 0 and right = the length of the array - 1, so in the beginning, the array is always divided into two parts
-        if (left < right)
+        if (array.Length <= 1)
         {
-            int mid = (left + right) / 2; //calculating the middle index of the array
-
-            Sort(arr, left, mid); //recursively sort the left half of the array
-            Sort(arr, mid + 1, right); //recursively sort the right half of the array
-
-            Merge(arr, left, mid, right);
+            return array;
         }
+        int mid = array.Length / 2;
+        int[] left = new int[mid];
+        int[] right = new int[array.Length - mid];
 
+        Array.Copy(array, 0, left, 0, mid);
+        Array.Copy(array, mid, right, 0, array.Length - mid);
+
+        left = Sort(left);
+        right = Sort(right);
+
+        return Merge(left, right);
     }
 
-    public void Merge(int[] arr, int left, int mid, int right){
-         int i, j, k;
-        int sizeLeft = mid - left + 1; //the size of the left subarray
-        int sizeRight = right - mid; // the size of the right subarray
-
-        int[] tempLeft = new int[sizeLeft]; //temporary array for the left subarray
-        int[] temptRight = new int[sizeRight]; //temporary array for the right subarray
-
-        Array.Copy(arr, left, tempLeft, 0, sizeLeft);
-        Array.Copy(arr, mid + 1, temptRight, 0, sizeRight);
-
-        i = 0; // index for calculating for left array
-        j = 0; //index for calculating the right array
-        k = left; //the index of the initial array
-
-
-        while (i < sizeLeft && j < sizeRight)
+    private int[] Merge(int[] left, int[] right)
+    {
+        int[] result = new int[left.Length + right.Length];
+        int i = 0, j = 0, k = 0;
+        while (i < left.Length && j < right.Length)
         {
-            if (tempLeft[i] <= temptRight[j])
-            { //comparing each element on each index, 
-                arr[k] = tempLeft[i]; //if element from left array is smaller, write it to the initial array
-                i++;
+            if (left[i] < right[j])
+            {
+                result[k++] = left[i++];
             }
             else
             {
-                arr[k] = temptRight[j];
-                j++;
+                result[k++] = right[j++];
             }
-
-            k++;
         }
 
-        while (i < sizeLeft)
-        { //if there are any elements remaining in the left subarray, copy them to the initial array
-            arr[k] = tempLeft[i];
-            i++;
-            k++;
+        while (i < left.Length)
+        {
+            result[k++] = left[i++];
         }
 
-        while (j < sizeRight)
-        { //if there are any elements remaining in the right subarray, copy them to the initial array
-            arr[k] = temptRight[j];
-            j++;
-            k++;
+        while (j < right.Length)
+        {
+            result[k++] = right[j++];
         }
+
+        return result;
     }
 }
