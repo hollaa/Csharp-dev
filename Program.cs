@@ -11,19 +11,19 @@ class FirstAssignment
             return;
         }
         else
-             arr = ParseInput(args[2]);
+            arr = ParseInput(args[2]);
         //to call the bubble sort function, the input should be -Bubble
         if (args[1] == "-Bubble")
         {
             BubbleSort bubbleSort = new BubbleSort();
-            bubbleSort.Sort(arr); //calling the bubble sort, passing the numbers the user gave us
+            arr = bubbleSort.Sort(arr); //calling the bubble sort, passing the numbers the user gave us
             PrintArray(arr);
         }
         //to call the merge sort function, the input should be -Merge
         else if (args[1] == "-Merge")
         {
             MergeSort MergeSorter = new MergeSort();
-            MergeSorter.Sort(arr);
+            arr = MergeSorter.Sort(arr);
             PrintArray(arr);
         }
     }
