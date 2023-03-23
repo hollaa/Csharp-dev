@@ -1,4 +1,4 @@
-public interface ISortAlgorithm
-{
-    int[] Sort(int[] array);
-}
+// public interface ISortAlgorithm
+// {
+//     int[] Sort(int[] array);
+// }

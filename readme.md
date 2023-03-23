@@ -27,7 +27,7 @@ If the above command returns the version of .NET that you installed, you're read
 
 1. Download and extract the source file (.zip file), open it in your coding editor
 2. In the terminal, change the directory to the provided source code
-3. Run it with the command dotnet run sort -Bubble "3, 12, 48, 22, 33, 1254" or dotnet run sort -Merge "2, 34, 5, 12, 33, 40"
+3. Run it with the command sort -Bubble/-Merge -int/-double/-string “1,4,2,3” or sort -Bubble/-Merge -int/-double/-string 1 4 2 3"
 
 
 <!-- USAGE EXAMPLES -->
@@ -36,7 +36,7 @@ If the above command returns the version of .NET that you installed, you're read
 The usage of this code is to sort a list of numbers with the chosen algorithm - either bubble sort or merge sort. The user can input any list of integers and they will be sorted. To have a correct output (sorted integers), please input the numbers only as the following example: 
 
 
-The program handle misuage by providing the correct formating for the input.
+The program handles misuage by providing the correct formating for the input.
 dotnet run sort -Bubble "3, 12, 48, 22, 33, 1254"  if you want to use the Bubble sort algorithm
 or 
 dotnet run sort -Merge "2, 34, 5, 12, 33, 40" if you want to use the Merge sort algorithm

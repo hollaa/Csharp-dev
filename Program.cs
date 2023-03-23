@@ -1,49 +1,64 @@
 ﻿using System;
 
-class FirstAssignment
+class Program
 {
     static void Main(string[] args)
     {
-        int[] arr;
-        if (args.Length != 3 || args[0] != "sort" || args[1] != "-Bubble" && args[1] != "-Merge")
+        if (args.Length != 4 || args[0] != "sort" || (args[1] != "-Bubble" && args[1] != "-Merge"))
         {
-            Console.WriteLine("Input not correct. Correct version: sort -Bubble “1,4,2,3” or  sort -Merge “1,4,2,3”");
+            Console.WriteLine(args.Length);
+            Console.WriteLine("Input not correct. Correct version: sort -Bubble/-Merge -int/-double/-string “1,4,2,3” or sort -Bubble/-Merge -int/-double/-string 1 4 2 3");
             return;
         }
-        else
-            arr = ParseInput(args[2]);
-        //to call the bubble sort function, the input should be -Bubble
-        if (args[1] == "-Bubble")
+        if (!IsValidType(args[2]))
         {
-            BubbleSort bubbleSort = new BubbleSort();
-            arr = bubbleSort.Sort(arr); //calling the bubble sort, passing the numbers the user gave us
-            PrintArray(arr);
+            Console.WriteLine("Invalid type specified.");
+            return;
         }
-        //to call the merge sort function, the input should be -Merge
-        else if (args[1] == "-Merge")
+
+        switch (args[1])
         {
-            MergeSort MergeSorter = new MergeSort();
-            arr = MergeSorter.Sort(arr);
-            PrintArray(arr);
+            case "-Bubble":
+                if (args[2] == "-string")
+                {
+                    string[] arr = args[3].Split(',');
+                    BubbleSort<string> bs = new BubbleSort<string>();
+                    string[] arrayyyy = bs.Sort(arr);
+                    PrintArray(arrayyyy);
+                }
+                if (args[2] == "-int")
+                {
+                    int[] arr = args[3].Split(',').Select(int.Parse).ToArray<int>();
+                    BubbleSort<int> bs = new BubbleSort<int>();
+                    int[] arrayyyy = bs.Sort(arr);
+                    Console.WriteLine("hello");
+                    PrintArray(arrayyyy);
+                }
+                break;
+            case "-Merge":
+               if (args[2] == "-string") {
+                    string[] arr = args[3].Split(',');
+                    MergeSort<string> ms = new MergeSort<string>();
+                    string[] arrayyyy= ms.Sort(arr);
+                    PrintArray(arrayyyy);
+                }
+                if (args[2] == "-int") {
+                    int[] arr = args[3].Split(',').Select(int.Parse).ToArray<int>();
+                    MergeSort<int> ms = new MergeSort<int>();
+                    int[] arrayyyy = ms.Sort(arr);
+                    PrintArray(arrayyyy);
+                }
+                break;
+            default:
+                Console.WriteLine("Invalid sorting algorithm specified.");
+                return;
         }
+
+        
     }
 
-    //parsing the string input into the list of numbers
-    static int[] ParseInput(string input)
-    {
-        string[] numbers = input.Split(',');
-        int[] arr = new int[numbers.Length];
 
-        for (int i = 0; i < numbers.Length; i++)
-        {
-            arr[i] = int.Parse(numbers[i]);
-        }
-
-        return arr;
-    }
-
-    //function to print the array after sorting, passing the array 
-    static void PrintArray(int[] arr)
+    static void PrintArray<T>(T[] arr)
     {
         Console.WriteLine("This is your sorted array: ");
         for (int i = 0; i < arr.Length; i++)
@@ -51,7 +66,98 @@ class FirstAssignment
             Console.Write(arr[i] + " ");
         }
         Console.WriteLine();
-        return;
+    }
+    static bool IsValidType(string type)
+    {
+        return type == "-int" || type == "-double" || type == "-string";
     }
 }
 
+public interface ISortAlgorithm<T>
+{
+    T[] Sort(T[] arr);
+}
+
+public class BubbleSort<T> : ISortAlgorithm<T> where T : IComparable<T>
+{
+    public T[] Sort(T[] array)
+    {
+        for (int i = 0; i < array.Length - 1; i++)
+        {
+            for (int j = 0; j < array.Length - i - 1; j++)
+            {
+                if (array[j].CompareTo(array[j + 1]) > 0)
+                {
+                    T temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        return array;
+    }
+}
+
+public class MergeSort<T> : ISortAlgorithm<T> where T : IComparable<T>
+{
+    public T[] Sort(T[] array)
+    {
+        if (array.Length <= 1)
+        {
+            return array;
+        }
+
+        int middleIndex = array.Length / 2;
+        T[] leftArray = new T[middleIndex];
+        T[] rightArray = new T[array.Length - middleIndex];
+
+        for (int i = 0; i < middleIndex; i++)
+        {
+            leftArray[i] = array[i];
+        }
+
+        for (int i = middleIndex; i < array.Length; i++)
+        {
+            rightArray[i - middleIndex] = array[i];
+        }
+
+        leftArray = Sort(leftArray);
+        rightArray = Sort(rightArray);
+
+        int leftIndex = 0;
+        int rightIndex = 0;
+        int mergedIndex = 0;
+        T[] mergedArray = new T[array.Length];
+
+        while (leftIndex < leftArray.Length && rightIndex < rightArray.Length)
+        {
+            if (leftArray[leftIndex].CompareTo(rightArray[rightIndex]) <= 0)
+            {
+                mergedArray[mergedIndex] = leftArray[leftIndex];
+                leftIndex++;
+            }
+            else
+            {
+                mergedArray[mergedIndex] = rightArray[rightIndex];
+                rightIndex++;
+            }
+            mergedIndex++;
+        }
+
+        while (leftIndex < leftArray.Length)
+        {
+            mergedArray[mergedIndex] = leftArray[leftIndex];
+            leftIndex++;
+            mergedIndex++;
+        }
+
+        while (rightIndex < rightArray.Length)
+        {
+            mergedArray[mergedIndex] = rightArray[rightIndex];
+            rightIndex++;
+            mergedIndex++;
+        }
+
+        return mergedArray;
+    }
+}
