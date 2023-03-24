@@ -74,6 +74,5 @@ dotnet run sort -Merge -string " cat, ananas, leg, chair, laptop, dog"
 The output is a sorted list of numbers in this format:
 ```
 This is your sorted array: 
-This is your sorted array: 
  ananas  cat  chair  dog  laptop  leg 
 ```
