@@ -1,7 +1,12 @@
 # Assignment 1 in C# Development
-## _Implementation of Bubble Sort and Merge Sort in C#_
+## _Implementation of Bubble Sort and Merge Sort in C# using Generics _
 
-This document is created for the purposes of explanation of my first implementation of Bubble sort of Merge sort using the programming language C#.
+This document is created for the purposes of explanation of my second implementation of Bubble sort of Merge sort using the programming language C#.
+
+The following changes were made to the initial version of this code:
+- The two sorting functions were organized to two classes
+- The classes inherit from one interface
+- Generics were introduced so the program supports now also sorting of the data type double and string
 
 ### Bubble sort
 
@@ -16,22 +21,25 @@ The algorithm follows these steps:
 
 The list to be sorted is given by the user by the command
 ```
-sort -Bubble “1,4,2,3”
+dotnet run sort -Bubble -double "2.1, 0.3, 44.5, 55, 10.8, 40"
 ```
 
-1. The program checks if the command from the input starts with -Bubble
-2. Function ParseInput is called with passing the list of numbers from the input, here is the string divided into array of numbers
-3. BubbleSort function is called, the array of numbers is passed
-4. In the BubbleSort function, there are two for loops, the first one goes through all the numbers from array index 0 until the length of the array - 1. There is no need to go to the last element as there is no number next to it to compare it to.
-5. There is a boolean variable _swapped_ that is letting us know whether the numbers are being swapped, this is set to false in the beginning to assume that the elements are already sorted.
-5. For each pair of adjacent elements, if the first element is greater than the second element, the function swaps them and sets swapped to true.
-6. After completing the inner loop, if statement checks if the _swapped_ variable is still false, if so, the list is sorted. Otherwise the function repeats the process
-7. When the list is sorted, the function breaks and the sorted array is printed out
+1. The class "BubbleSort" implements the "ISortAlgorithm" interface and provides an implementation for the "Sort" method for bubble sort
+2. The type parameter "T" is used to specify that the type T must implement the "IComparable<T>" interface, which allows comparison of objects of type T.
+3. The "Sort" method takes an array of type T as input and returns an array of type T as output.
+4. A boolean variable "swapped" is initialized to true, which will be used to check if an element has been swapped or not during the sorting process.
+5. The first loop iterates from the beginning of the array to the second-to-last element.
+6. The second loop iterates from the beginning of the array to the element that is "array.Length - i - 2" positions from the end of the array.
+7. Inside the second loop, the program checks if the current element is greater than the next element using the "CompareTo" method of the "IComparable<T>" interface.
+8. If the current element is greater than the next element, the two elements are swapped using a temporary variable "temp".
+9. The "swapped" variable is set to true to indicate that at least one element was swapped during this iteration.
+10. If no elements were swapped during this iteration, the "swapped" variable will still be false, and the program breaks out of the first loop.
+11. The sorted array is returned by the "Sort" method.
 
-The output is a sorted list of numbers in this format:
+The output is a sorted list of elements in this format:
 ```
 This is your sorted array: 
-1 2 3 4
+0.3 2.1 10.8 40 44.5 55 
 ```
 
 ### Merge sort
@@ -45,23 +53,26 @@ Merge sort is a sorting algorithm that uses a divide-and-conquer approach to sor
 
 The list to be sorted is given by the user by the command
 ```
-sort -Merge “1,4,2,3”
+dotnet run sort -Merge -string " cat, ananas, leg, chair, laptop, dog" 
 ```
 
-1. The program checks if the command from the input starts with -Merge
-2. Function ParseInput is called with passing the list of numbers from the input, here is the string divided into array of numbers
-3. MergeSort function is called, the parameters are the list of numbers to be sorted, 0 for the the begininning of the array and the length of the array -1 for the end of the array
-4. MergeSort function is recurssively dividing the array into halves 
-5. The first time the MergeSort function runs, in the if statement it checks if there is more than one element in the array and then calculates the middle index. 
-6. After the left and right halves are sorted, the Merge function is called to merge the two sorted halves into a single sorted array
-7. The Merge function copies the left and right subarrays into temporary arrays
-8. The first while loop is going through the temporary arrays and compares each element from the same index and writes the smaller one to the initial array. If they are equal, the element from the left array is written first.
-9. This loop continues until all the elements in one of the temporary arrays have been copied into the original array
-10. The function uses two more while loops to copy any remaining elements in the left or right sub-arrays into the original array
-11. Now the sorted array is printed out
+1. The class MergeSort which implements the ISortAlgorithm interface 
+2. The type parameter "T" is used to specify that the type T must implement the "IComparable<T>" interface, which allows comparison of objects of type T.
+3. The "Sort" method takes an array of type T as input and returns an array of type T as output.
+4. Check if the length of the array is less than or equal to 1. If so, return the array as it is already sorted.
+5. Calculate the middle index of the array.
+6. Create two new arrays called leftArray and rightArray with lengths of mid and array.Length - mid respectively.
+7. Copy the first half of the original array into the left array and the second half into the right array.
+8. Recursively call the Sort method on the left and right arrays.
+9. Create a new array called mergedArray with a length equal to the length of the original array.
+10. Compare the elements in the left and right arrays, and place them in the merged array in sorted order.
+11. If there are remaining elements in the left array, copy them into the merged array.
+12. If there are remaining elements in the right array, copy them into the merged array.
+13. Return the mergedArray as the sorted array.
 
 The output is a sorted list of numbers in this format:
 ```
 This is your sorted array: 
-“1 2 3 4”
+This is your sorted array: 
+ ananas  cat  chair  dog  laptop  leg 
 ```

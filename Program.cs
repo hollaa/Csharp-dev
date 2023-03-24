@@ -7,7 +7,7 @@ class Program
         // Check if the arguments passed to the program are correct
        if (!IsInputValid(args))
         {
-            Console.WriteLine("Input not correct. Correct version: sort -Bubble/-Merge -int/-double/-string “1,4,2,3” or sort -Bubble/-Merge -int/-double/-string 1 4 2 3");
+            Console.WriteLine("Input not correct. Correct version: sort -Bubble/-Merge -int/-double/-string “1,4,2,3”");
             return;
         }
 
