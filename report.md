@@ -1,5 +1,5 @@
 # Assignment 1 in C# Development
-## _Implementation of Bubble Sort and Merge Sort in C# using Generics _
+## _Implementation of Bubble Sort and Merge Sort in C# using Generics_
 
 This document is created for the purposes of explanation of my second implementation of Bubble sort of Merge sort using the programming language C#.
 
