@@ -47,7 +47,8 @@ Merge sort is a sorting algorithm that uses a divide-and-conquer approach to sor
 
 1. Divide the unsorted array into two halves, by finding the middle index of the array.
 2. Recursively sort the left half of the array by applying the merge sort algorithm to it.
-3. Recursively sort the right half of the array
+3. Recursively sort the right half of the array pplying the merge sort algorithm to it.
+4. Merge the sorted halves back together to obtain the final sorted array.
 
 #### My Implementation
 

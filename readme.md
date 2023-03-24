@@ -33,13 +33,20 @@ If the above command returns the version of .NET that you installed, you're read
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The usage of this code is to sort a list of numbers with the chosen algorithm - either bubble sort or merge sort. The user can input any list of integers and they will be sorted. To have a correct output (sorted integers), please input the numbers only as the following example: 
+The usage of this code is to sort a list of integers, doubles or strings with the chosen algorithm - either bubble sort or merge sort. The user can input any list of elements and they will be sorted. To have a correct output (sorted integers), please input the elements only as the following example: 
+
+```
+dotnet run sort -Merge -string " cat, ananas, leg, chair, laptop, dog" 
+```
+or
+```
+dotnet run sort -Bubble -int "13, 45, 2, 77" 
+```
+
+> Please note that for the string input, there has to be a space between the " and the first element 
 
 
 The program handles misuage by providing the correct formating for the input.
-dotnet run sort -Bubble "3, 12, 48, 22, 33, 1254"  if you want to use the Bubble sort algorithm
-or 
-dotnet run sort -Merge "2, 34, 5, 12, 33, 40" if you want to use the Merge sort algorithm
 
 The number of integers may vary, but the program cannot handle any exceptions when it comes to the input format except for mistyping the type of sorting algorithm. Always separate the numbers with comma.
 
@@ -53,8 +60,6 @@ This is your sorted array:
 
 ### Potential future improvements
 The list of the potential future improvements is already prioritized as written in the points.
-- Ensure that the input from the user is an integer 
-- Check whether there are more than 1 number inserted, if not, stop the program. 
 - Find more efficient solutions
 - Add support for additional input types, such as CSV and JSON files
 - Develop user interface
