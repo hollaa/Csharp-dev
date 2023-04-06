@@ -1,0 +1,15 @@
+/Users/alicaholla/Documents/CD-Assignment3/bin/Debug/net6.0/CD-Assignment3
+/Users/alicaholla/Documents/CD-Assignment3/bin/Debug/net6.0/CD-Assignment3.deps.json
+/Users/alicaholla/Documents/CD-Assignment3/bin/Debug/net6.0/CD-Assignment3.runtimeconfig.json
+/Users/alicaholla/Documents/CD-Assignment3/bin/Debug/net6.0/CD-Assignment3.dll
+/Users/alicaholla/Documents/CD-Assignment3/bin/Debug/net6.0/CD-Assignment3.pdb
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/CD-Assignment3.csproj.AssemblyReference.cache
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/CD-Assignment3.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/CD-Assignment3.AssemblyInfoInputs.cache
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/CD-Assignment3.AssemblyInfo.cs
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/CD-Assignment3.csproj.CoreCompileInputs.cache
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/CD-Assignment3.dll
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/refint/CD-Assignment3.dll
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/CD-Assignment3.pdb
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/CD-Assignment3.genruntimeconfig.cache
+/Users/alicaholla/Documents/CD-Assignment3/obj/Debug/net6.0/ref/CD-Assignment3.dll
